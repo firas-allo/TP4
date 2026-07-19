@@ -133,7 +133,17 @@ footer p {
         </div>
     </div>
 </nav>
-
+<script>
+for(let i=0;i<15;i++){
+    let bubble = document.createElement("div");
+    bubble.className="bubble";
+    bubble.style.width = bubble.style.height = Math.random()*10+5+"px";
+    bubble.style.left = Math.random()*100+"%";
+    bubble.style.bottom = "-20px";
+    bubble.style.animationDuration = (Math.random()*5+5)+"s";
+    document.body.appendChild(bubble);
+}
+</script>
 </body>
 
 </html>
