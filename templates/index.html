@@ -144,6 +144,47 @@ for(let i=0;i<15;i++){
     document.body.appendChild(bubble);
 }
 </script>
+
+
+<div class="container d-flex justify-content-center">
+
+    <div class="main-card shadow-lg">
+
+        <!-- HEADER -->
+        <div class="section text-center">
+            <h2>Reconnaissance des sons marins</h2>
+            <p>Analyse intelligente des sons avec l'IA</p>
+        </div>
+
+        <!-- UPLOAD -->
+        <div class="section">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input class="form-control mb-3" type="file" name="file" accept=".wav" required>
+                <button class="btn btn-primary w-100">🚀 Analyser</button>
+            </form>
+        </div>
+
+        <!-- RESULT -->
+        {% if prediction %}
+        <div class="section text-center">
+            <h4>Résultat : {{ prediction }}</h4>
+
+            {% if prediction == "Béluga" %}
+                <img class="animal-img" src="{{ url_for('static', filename='images/beluga.jpg') }}">
+            {% elif prediction == "Baleine à bosse" %}
+                <img class="animal-img" src="{{ url_for('static', filename='images/baleine.jpg') }}">
+            {% elif prediction == "Cachalot" %}
+                <img class="animal-img" src="{{ url_for('static', filename='images/cachalot.jpg') }}">
+            {% elif prediction == "Rorqual commun" %}
+                <img class="animal-img" src="{{ url_for('static', filename='images/rorqual.jpg') }}">
+            {% elif prediction == "Dauphin" %}
+                <img class="animal-img" src="{{ url_for('static', filename='images/dauphin.jpg') }}">
+            {% endif %}
+        </div>
+        {% endif %}
+
+    </div>
+</div>
 </body>
 
 </html>
